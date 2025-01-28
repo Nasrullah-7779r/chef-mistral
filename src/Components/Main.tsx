@@ -26,6 +26,8 @@ export default function Main() {
     const newIngredient = formData.get("ingredient") as string
 
     event.currentTarget.reset()
+    const inputElement = event.target.elements["ingredient"]
+    inputElement.focus()
     setIngredients((prevIngredients) => [...prevIngredients, newIngredient])
   }
 
