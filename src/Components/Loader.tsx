@@ -11,7 +11,7 @@ export function Loader() {
         height: "10vh",
       }}
     >
-      <CircularProgress size={80} />
+      <CircularProgress size={40} />
     </div>
   )
 }

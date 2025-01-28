@@ -40,12 +40,12 @@ main {
 .add-ingredient-form>input {
   border-radius: 6px;
   border: 1px solid #D1D5DB;
-  padding: 20px 13px;
+  padding: 10px 13px;
   box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.05);
   flex-grow: 1;
-  min-width: 150px;
-  max-width: 400px;
-  font-size: x-large;
+  min-width: 130px;
+  max-width: 350px;
+  font-size: large;
 }
 
 .add-ingredient-form>button {
@@ -54,10 +54,10 @@ main {
   border: none;
   background-color: #141413;
   color: #FAFAF8;
-  width: 160px;
-  height: 45px;
-  font-size: 1.1rem;
-  font-weight: 500;
+  width: 150px;
+  height: 40px;
+  font-size: 1rem;
+  font-weight: 400;
 }
 
 .add-ingredient-form>button::before {
@@ -74,7 +74,7 @@ ul.ingredients-list>li {
 
 .on-hand{
   margin-top: 30px;
-font-size: 25px;
+font-size: 15px;
 }
 
 .get-recipe-container {
@@ -88,14 +88,14 @@ font-size: 25px;
 }
 
 .get-recipe-container h3 {
-  font-size: 2.125rem;
+  font-size: 1.125rem;
   font-weight: 500;
   line-height: 24px;
 }
 
 .get-recipe-container p {
   color: #6B7280;
-  font-size: 1.875rem;
+  font-size: 0.875rem;
   line-height: 20px;
 }
 
@@ -107,7 +107,7 @@ font-size: 25px;
   color: #FAFAF8;
   padding: 9px 17px;
   font-family: Inter, sans-serif;
-  font-size: 1.875rem;
+  font-size: 0.875rem;
   cursor: pointer;
 }
 

@@ -49,8 +49,8 @@ export default function Main() {
       {ingredients.length > 0 && (
         <IngredientsList ingredients={ingredients} getRecipe={getRecipe} />
       )}
-
-      {loading ? <Loader /> : <ClaudeRecipe recipe={recipe} />}
+      {loading && <Loader />}
+      {recipe != "" && <ClaudeRecipe recipe={recipe} />}
     </main>
   )
 }
