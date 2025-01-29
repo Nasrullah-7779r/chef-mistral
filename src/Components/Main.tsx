@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useEffect, useRef, useState } from "react"
 import IngredientsList from "./IngredientList"
 import ClaudeRecipe from "./ClaudeRecipe"
 import { getRecipeFromMistral } from "../ai"
@@ -8,15 +8,21 @@ export default function Main() {
   type Ingredient = string
 
   const [ingredients, setIngredients] = useState<Ingredient[]>([])
-  // const [recipeShown, setRecipeShown] = useState(false)
   const [loading, setLoading] = useState(false)
   const [recipe, setRecipe] = useState("")
+
+  const recipeRef = useRef<HTMLDivElement | null>(null)
+
+  useEffect(() => {
+    if (recipe !== "" && recipeRef.current !== null) {
+      recipeRef.current.scrollIntoView({ behavior: "smooth" })
+    }
+  }, [recipe])
 
   async function getRecipe() {
     setLoading(true)
     const recipeMarkdown = await getRecipeFromMistral(ingredients)
     setLoading(false)
-    console.log("recipeMarkdown", recipeMarkdown)
     setRecipe(recipeMarkdown as string)
   }
 
@@ -30,10 +36,6 @@ export default function Main() {
     inputElement.focus()
     setIngredients((prevIngredients) => [...prevIngredients, newIngredient])
   }
-
-  // function toggleRecipeShown() {
-  //   setRecipeShown((prevShown) => !prevShown)
-  // }
 
   return (
     <main>
@@ -49,7 +51,11 @@ export default function Main() {
       </form>
 
       {ingredients.length > 0 && (
-        <IngredientsList ingredients={ingredients} getRecipe={getRecipe} />
+        <IngredientsList
+          ref={recipeRef}
+          ingredients={ingredients}
+          getRecipe={getRecipe}
+        />
       )}
       {loading && <Loader />}
       {recipe != "" && <ClaudeRecipe recipe={recipe} />}
