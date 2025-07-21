@@ -4,20 +4,17 @@ export async function getRecipeFromMistral(ingredientsArr: string[]) {
   }
 
   try {
-    const response = await fetch(
-      import.meta.env.VITE_API_BASE_URL_LOCAL + "recipe",
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          ingredients: ingredientsArr
-            .map((ingredient) => ingredient.trim())
-            .filter(Boolean),
-        }),
-      }
-    )
+    const response = await fetch(import.meta.env.VITE_API_BASE_URL + "recipe", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        ingredients: ingredientsArr
+          .map((ingredient) => ingredient.trim())
+          .filter(Boolean),
+      }),
+    })
     if (!response.ok) {
       throw new Error(`HTTP error! status: ${response.status}`)
     }
