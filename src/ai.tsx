@@ -3,8 +3,9 @@ export async function getRecipeFromMistral(ingredientsArr: string[]) {
     return ""
   }
 
+  const API_BASE = '/api/v1/'
   try {
-    const response = await fetch(import.meta.env.VITE_API_BASE_URL + "recipe", {
+    const response = await fetch(API_BASE + "recipe", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
